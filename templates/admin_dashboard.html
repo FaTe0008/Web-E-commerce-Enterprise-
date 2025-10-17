@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Admin Dashboard</h2>
+<div class="admin-stats">
+    <div class="stat-card">
+        <h3>Total Revenue</h3>
+        <p>${{ "%.2f"|format(total_revenue) }}</p>
+    </div>
+    <div class="stat-card">
+        <h3>Total Items Sold</h3>
+        <p>{{ total_items }}</p>
+    </div>
+    <div class="stat-card">
+        <h3>Total Orders</h3>
+        <p>{{ total_orders }}</p>
+    </div>
+</div>
+
+<div class="admin-actions">
+    <a href="{{ url_for('admin_products') }}" class="btn">Manage Products</a>
+</div>
+
+<div class="top-products">
+    <h3>Top Selling Products</h3>
+    {% if top_products %}
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Units Sold</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in top_products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.total_sold }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No sales data available.</p>
+    {% endif %}
+</div>
+{% endblock %}
