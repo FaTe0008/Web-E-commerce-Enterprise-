@@ -27,12 +27,16 @@ A simple yet functional e-commerce web application built with Python Flask and S
 
 ### Prerequisites
 - Python 3.6 or higher
-- pip (Python package manager)
+- pip or pip3 (Python package manager)
+  
 
 ### Installation Steps
 
 Go to the Project Directory and open terminal or command prompt and enter the following commands:
-python app.py
+python -m venv /path/to/new/virtual/environment
+source venv/bin/activate
+pip install Flask or pip3 install Flask
+python app.py or python3 app.py
 Go to the local server and open the login page
 
 
